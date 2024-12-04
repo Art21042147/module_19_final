@@ -30,3 +30,43 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        db_table = 'blog_category'
+
+
+class Media(models.Model):
+    title = models.CharField(
+        max_length=100,
+        verbose_name="title")
+    size = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        verbose_name="file size")
+    description = models.TextField(
+        verbose_name="description")
+    age_limited = models.BooleanField(
+        default=False,
+        verbose_name="18+")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        db_table = 'blog_media'
+
+
+class Docs(models.Model):
+    title = models.CharField(
+        max_length=100,
+        verbose_name="title")
+    size = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        verbose_name="file size")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        db_table = 'blog_docs'

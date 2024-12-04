@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, BlogPost, Category
+from .models import User, BlogPost, Category, Media, Docs
 
 
 @admin.register(User)
@@ -19,3 +19,15 @@ class BlogPostAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
+
+
+@admin.register(Media)
+class MediaAdmin(admin.ModelAdmin):
+    list_display = ('title', 'size', 'description', 'age_limited')
+    search_fields = ('title',)
+
+
+@admin.register(Docs)
+class DocsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'size')
+    search_fields = ('title',)
